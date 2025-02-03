@@ -17,25 +17,18 @@ def main():
     st.write("Enter the details below to predict survival on the Titanic:")
 
     # Input fields
-    gender = st.radio("Gender", ("Male", "Female"))
-    age = st.number_input("Age", min_value=0, max_value=100, step=1, value=30)
-    pclass = st.selectbox("Ticket Class (Pclass)", [1, 2, 3])
-    siblings_spouses = st.number_input("Number of Siblings/Spouses Aboard", min_value=0, step=1, value=0)
-    parents_children = st.number_input("Number of Parents/Children Aboard", min_value=0, step=1, value=0)
-    fare = st.number_input("Fare (in USD)", min_value=0.0, step=0.01, value=50.0)
+    Gender = st.radio("Gender", ("Male", "Female"))
+    Age = st.number_input("Age", min_value=0, max_value=100, step=1, value=30)
+    Pclass = st.selectbox("Ticket Class (Pclass)", [1, 2, 3])
+    SibSp = st.number_input("Number of Siblings/Spouses Aboard", min_value=0, step=1, value=0)
+    Parch = st.number_input("Number of Parents/Children Aboard", min_value=0, step=1, value=0)
+    Fare = st.number_input("Fare (in USD)", min_value=0.0, step=0.01, value=50.0)
 
     # Convert gender to numeric
-    gender_numeric = 1 if gender == "Female" else 0
+    Sex = 1 if Gender == "Female" else 0
 
     # Prepare features for prediction
-    features = [
-        pclass,
-        gender_numeric,
-        age,
-        siblings_spouses,
-        parents_children,
-        fare
-    ]
+    features = [Pclass, Sex, Age, SibSp, Parch, Fare]
 
     # Prediction
     if st.button("Predict"):
