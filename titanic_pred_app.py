@@ -29,7 +29,9 @@ def main():
 
     # Prepare features for prediction
     features = [Pclass, Sex, Age, SibSp, Parch, Fare]
-
+    #features_array = np.array(features)
+    #single_sample = features_array.reshape(1,-1)
+    
     # Prediction
     if st.button("Predict"):
         result = predict_survival(model, features)
